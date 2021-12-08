@@ -146,7 +146,7 @@
             var jwt_token;
             {% endif %}
 
-            fetch("{{ specs[0]['url'] }}")
+            fetch("{{ '' | env_override('HTTPBIN_BASEPATH') }}{{ specs[0]['url'] }}")
                 .then(function (response) {
                     response.json()
                         .then(function (json) {
